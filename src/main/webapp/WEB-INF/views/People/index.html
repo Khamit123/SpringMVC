@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>People</title>
@@ -7,7 +7,6 @@
 <body>
 <div th:each="person : ${people}">
 <a th:href="@{/people/person/{id} (id=${person.getId()})}" th:text="${person.getName()}">VALUE</a>
-    <a href="/people/delete"> Delete people</a>
 </div>
 <a href="/people/new"> Crete new people</a>
 </body>

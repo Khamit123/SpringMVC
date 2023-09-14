@@ -24,6 +24,13 @@ public class PeopleDao {
     public void deletePerson(Person person){
         people.remove(person);
     }
+    public void update(int id,Person person){
+        Person personToBeUpdated = person(id);
+        personToBeUpdated.setName(person.getName());
+    }
+    public void delete(int id){
+        people.removeIf(person -> person.getId()==id);
+    }
 
     public List<Person> People() {
         return people;
