@@ -7,6 +7,10 @@
 <body>
 <div th:each="person : ${people}">
 <a th:href="@{/people/person/{id} (id=${person.getId()})}" th:text="${person.getName()}">VALUE</a>
+    <form th:method="DELETE" th:action="@{/people/person/{id} (id=${person.getId()})}" >
+        <input type="submit" value="Delete"/>
+
+    </form>
 </div>
 <a href="/people/new"> Crete new people</a>
 </body>

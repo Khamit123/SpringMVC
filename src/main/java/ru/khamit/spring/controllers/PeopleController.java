@@ -25,18 +25,18 @@ public class PeopleController {
         return "People/index";
     }
 
-//    @GetMapping("/person/{id}")
-//    public String person(@PathVariable("id") int id, Model model) {
-//        model.addAttribute("person", peopleDao.person(id));
-//        return "People/person";
-//    }
-//
-//    @GetMapping("/delete")
-//    public String deletePreson(@RequestParam("personToDelete") Person person) {
-//        peopleDao.deletePerson(person);
-//        return "People/index";
-//    }
-//
+    @GetMapping("/person/{id}")
+    public String person(@PathVariable("id") int id, Model model) {
+        model.addAttribute("person", peopleDao.person(id));
+        return "People/person";
+    }
+
+    @GetMapping("/delete")
+    public String deletePreson(@RequestParam("personToDelete") Person person) {
+        peopleDao.deletePerson(person);
+        return "People/index";
+    }
+
     @GetMapping("/new")
     public String newPeople(Model model) {
         model.addAttribute("person", new Person());
@@ -69,22 +69,22 @@ public class PeopleController {
 //        return "Welcome to my site";
 //    }
 //
-//    @GetMapping("/person/{id}/edit")
-//    public String edit(Model model, @PathVariable("id") int id) {
-//        model.addAttribute("person", peopleDao.person(id));
-//        return "People/edit";
-//    }
-//
-//    @PatchMapping("/person/{id}")
-//    public String update(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult, @PathVariable("id") int id) {
-//        if(bindingResult.hasErrors()) return "People/edit";
-//        peopleDao.update(id, person);
-//        return "redirect:/people/person/{id}";
-//    }
-//    @DeleteMapping("/person/{id}")
-//    public String delete(@PathVariable("id")int id){
-//        peopleDao.delete(id);
-//        return "redirect:/people";
-//    }
+    @GetMapping("/person/{id}/edit")
+    public String edit(Model model, @PathVariable("id") int id) {
+        model.addAttribute("person", peopleDao.person(id));
+        return "People/edit";
+    }
+
+    @PatchMapping("/person/{id}")
+    public String update(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult, @PathVariable("id") int id) {
+        if(bindingResult.hasErrors()) return "People/edit";
+        peopleDao.update(id, person);
+        return "redirect:/people/person/{id}";
+    }
+    @DeleteMapping("/person/{id}")
+    public String delete(@PathVariable("id")int id){
+        peopleDao.delete(id);
+        return "redirect:/people";
+    }
 
 }
